@@ -41,6 +41,7 @@ nav.navbar {
 @media (max-width: 1330px) {
   nav.navbar {
     width: 90%;
+    top: 1rem;
   }
 }
 @media (max-width: 650px) {
@@ -53,7 +54,7 @@ nav.navbar {
     justify-content: space-between;
     gap: 0px;
     width: 100%;
-    top: 0.6rem;
+    top: 1rem;
   }
   .navIcon {
     width: 7rem;

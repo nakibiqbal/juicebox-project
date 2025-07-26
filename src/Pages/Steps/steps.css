@@ -4,6 +4,7 @@ section#steps {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Bagoss";
 }
 .stepsContainer {
   width: 100%;
@@ -30,7 +31,6 @@ section#steps {
   width: 18rem;
 }
 .steps h3 {
-  font-family: "Bagoss";
   font-size: 38px;
   font-weight: 100;
   width: 34rem;
@@ -83,12 +83,14 @@ section#steps {
   font-variant: initial;
   line-height: 1;
   font-size: 24px;
+  content: "Continue" !important;
 }
 
 .swiper-button-prev {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   top: 0;
+  margin: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999999999999999 !important;
@@ -104,9 +106,21 @@ section#steps {
   content: "";
 }
 
+.swiper-button-next.swiper-button-disabled::after {
+  content: "" !important;
+}
+
 .swiper-pagination {
   bottom: 12% !important;
   position: absolute;
+}
+.noAfter {
+  font-size: 1.5rem;
+  background-color: white;
+  color: black;
+}
+.noAfter::after {
+  content: "" !important;
 }
 
 @media (max-width: 1400px) {
@@ -128,7 +142,7 @@ section#steps {
   .swiper-button-prev {
     width: 6rem;
     height: 6rem;
-    top: 2.4rem;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     position: fixed;
@@ -151,7 +165,7 @@ section#steps {
 
 @media (max-width: 650px) {
   .swiper-button-prev {
-    top: 2.4rem;
+    top: 1rem;
     left: 1.5rem;
     transform: none;
   }
@@ -159,7 +173,7 @@ section#steps {
 
 @media (max-width: 500px) {
   .swiper-button-prev {
-    top: 2rem;
+    top: 1rem;
     left: 0;
     transform: none;
     width: 5rem;

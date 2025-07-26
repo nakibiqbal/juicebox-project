@@ -1,5 +1,6 @@
+// Steps.jsx - EXACTLY YOUR ORIGINAL CODE
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -9,14 +10,24 @@ import './steps.css';
 import vector4x from "/Images/vector4x.png";
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 
-export default function Steps({ onBackToHome }) {
-    const [activeIndex, setActiveIndex] = useState(0);
+export default function Steps({ onBackToHome, onGetStarted, startFromLast = false }) {
+    const [activeIndex, setActiveIndex] = useState(startFromLast ? 2 : 0);
 
     const stepsData = [
         { textContent: "Professionals around the world shared how they feel about technology and I've listened. Now it's your turn." },
         { textContent: "I'll ask you a handful of meaningful questions and compare your responses with people in your industry." },
         { textContent: "You'll get insights into current industry sentiments and a reality check about technology in a few minutes. Deal? Great!" }
     ];
+
+    const handleSlideChange = (swiper) => {
+        setActiveIndex(swiper.activeIndex);
+    };
+
+    const handleNextClick = () => {
+        if (activeIndex === 2) {
+            onGetStarted();
+        }
+    };
 
     return (
         <motion.section
@@ -37,12 +48,20 @@ export default function Steps({ onBackToHome }) {
                     }}
                     modules={[EffectFade, Navigation, Pagination]}
                     className="mySwiper"
-                    onSlideChange={swiper => setActiveIndex(swiper.activeIndex)}
+                    onSlideChange={handleSlideChange}
+                    initialSlide={startFromLast ? 2 : 0}
                 >
 
                     {/* Show Back button only on first slide */}
                     {activeIndex === 0 && (
                         <div className="swiper-button-prev" onClick={onBackToHome} />
+                    )}
+
+                    {/* Custom Get Started button on last slide */}
+                    {activeIndex === 2 && (
+                        <div className="swiper-button-next noAfter" onClick={handleNextClick}>
+                            Get Started
+                        </div>
                     )}
 
                     {

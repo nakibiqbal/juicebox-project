@@ -1,0 +1,146 @@
+section#infoForm {
+  font-family: "Sohne";
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+}
+.infoFormContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.purpleCircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.purpleCircle {
+  width: 5rem;
+  height: 8rem;
+}
+
+.infoFormWrapper {
+  width: 38rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 18rem;
+}
+.resultStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.inputContainer {
+  width: 22rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: 1px solid #ffffff99;
+  position: relative;
+}
+
+.inputContainer input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  padding-left: 1rem;
+  padding-top: 4px;
+  font-family: "Sohne";
+  font-weight: 100;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+}
+.inputContainer input::placeholder {
+  color: #ffffff99;
+}
+
+.inputContainer button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-20%, -50%);
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: 900;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: white;
+  background-color: #ffffff99;
+}
+button.nextButton svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.continueButton {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.resultContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 655px) {
+  section#infoForm {
+    font-size: 5vw;
+    padding: 1rem;
+  }
+  .infoFormWrapper {
+    width: 100%;
+  }
+  .purpleCircle {
+    width: 3rem;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .purpleCircle img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+  }
+  .infoFormWrapper {
+    height: 50%;
+  }
+  .resultStep {
+    justify-content: space-between;
+    height: 100%;
+  }
+  .inputContainer {
+    width: 100%;
+  }
+  .inputContainer input {
+    padding-top: 2px;
+    font-size: 1rem;
+  }
+}

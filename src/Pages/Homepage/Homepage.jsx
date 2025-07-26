@@ -1,21 +1,46 @@
+// Homepage.jsx
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./homepage.css"
 import vector4x from "/Images/vector4x.png";
 import Steps from "../Steps/Steps.jsx";
+import InfoForm from "../InfoForm/InfoForm.jsx";
 
 export default function Homepage() {
 
-    const [showSteps, setShowSteps] = useState(false);
+    const [currentView, setCurrentView] = useState('homepage'); // homepage, steps, infoForm
+    const [fromInfoForm, setFromInfoForm] = useState(false);
 
     const handleBackToHome = () => {
-        setShowSteps(false);
+        setCurrentView('homepage');
+        setFromInfoForm(false);
     };
 
     const handleShowSteps = () => {
-        setShowSteps(true); // Remove setTimeout to allow proper exit animation
+        setCurrentView('steps');
+        setFromInfoForm(false);
     };
 
+    const handleShowInfoForm = () => {
+        setCurrentView('infoForm');
+    };
+
+    const handleBackToSteps = () => {
+        setCurrentView('steps');
+        setFromInfoForm(true);
+    };
+
+    const homepageData = [
+        { txt: "Compare your thoughts on" },
+        {
+            txt: (
+                <>
+                    <span className="gradientText">technology</span> with current
+                </>
+            )
+        },
+        { txt: "industry opinions." }
+    ]
     const spanTxts = [
         { txt: "WA businesses feel confident about future growth" },
         { txt: "AI can't replace creativity" },
@@ -24,21 +49,28 @@ export default function Homepage() {
         { txt: "The primary barrier to digital transformation is financial investment" }
     ]
 
+    const durationEase = {
+        duration: 2,
+        ease: [0.83, 0, 0.17, 1]
+    };
+
     return (
         <AnimatePresence mode="wait">
-            {showSteps ? (
+            {currentView === 'steps' ? (
                 <Steps
-                    key="steps" // Add key for AnimatePresence
+                    key={fromInfoForm ? "steps-from-form" : "steps"}
                     onBackToHome={handleBackToHome}
-                    show={showSteps}
+                    onGetStarted={handleShowInfoForm}
+                    startFromLast={fromInfoForm}
+                />
+            ) : currentView === 'infoForm' ? (
+                <InfoForm
+                    key="infoForm"
+                    onBackToSteps={handleBackToSteps}
                 />
             ) : (
                 <motion.section
-                    key="homepage" // Add key for AnimatePresence
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 50, opacity: 0 }}
-                    transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
+                    key="homepage"
                     id="homepage">
 
                     <div className="homepageContainer">
@@ -46,40 +78,28 @@ export default function Homepage() {
                         <div className="homepageContent">
 
                             <div className="textWrapper">
-                                <h1>
-                                    <motion.span
-                                        initial={{ y: 80, }}
-                                        animate={{ y: 0, }}
-                                        transition={{ duration: 2, ease: [0.83, 0, 0.17, 1], delay: 0.2 }}
-                                    >
-                                        Compare your thoughts on
-                                    </motion.span>
-                                </h1>
-                                <h1>
-                                    <motion.span
-                                        initial={{ y: 80, }}
-                                        animate={{ y: 0, }}
-                                        transition={{ duration: 2, ease: [0.83, 0, 0.17, 1], delay: 0.4 }}
-                                    >
-                                        <span className="gradientText">technology</span> with current
-                                    </motion.span>
-                                </h1>
-                                <h1>
-                                    <motion.span
-                                        initial={{ y: 80, }}
-                                        animate={{ y: 0, }}
-                                        transition={{ duration: 2, ease: [0.83, 0, 0.17, 1], delay: 0.6 }}
-                                    >
-                                        industry opinions.
-                                    </motion.span>
-                                </h1>
+
+                                {homepageData.map(({ txt }, index) => (
+                                    <h1 key={index}>
+                                        <motion.span
+                                            initial={{ y: 80, }}
+                                            animate={{ y: 0, }}
+                                            exit={{ y: 80, }}
+                                            transition={{ ...durationEase, delay: index * 0.2 }}
+                                        >
+                                            {txt}
+                                        </motion.span>
+                                    </h1>
+                                ))}
+
                             </div>
 
                             <div className="homepageBtn">
                                 <motion.button
                                     initial={{ y: 80, }}
                                     animate={{ y: 0, }}
-                                    transition={{ duration: 2, ease: [0.83, 0, 0.17, 1] }}
+                                    exit={{ y: 80, }}
+                                    transition={{ ...durationEase }}
                                     onClick={handleShowSteps}>
                                     Get a reality check
                                 </motion.button>
@@ -87,9 +107,12 @@ export default function Homepage() {
                         </div>
 
                         <div className="homepageImage">
+
                             <motion.img
-                                initial={{ filter: "blur(10px)" }} animate={{ filter: "blur(0px)" }}
-                                transition={{ duration: 2, ease: [0.83, 0, 0.17, 1] }}
+                                initial={{ filter: "blur(10px)", opacity: 0 }}
+                                animate={{ filter: "blur(0px)", opacity: 1 }}
+                                exit={{ filter: "blur(10px)", opacity: 0 }}
+                                transition={{ ...durationEase }}
                                 src={vector4x} alt="VectorImg" />
 
                             {
@@ -97,8 +120,8 @@ export default function Homepage() {
                                     return (
                                         <span key={index} className="parentSpan">
                                             <motion.span
-                                                initial={{ top: 50 }} animate={{ top: 0 }}
-                                                transition={{ duration: 2, delay: index * 0.2, ease: [0.83, 0, 0.17, 1] }}
+                                                initial={{ top: 50 }} animate={{ top: 0 }} exit={{ top: 50 }}
+                                                transition={{ ...durationEase, delay: index * 0.2 }}
                                                 className="childSpan">
                                                 {txt}
                                             </motion.span>
