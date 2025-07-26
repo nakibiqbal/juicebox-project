@@ -1,0 +1,255 @@
+section#homepage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepageImage {
+  width: 655px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  position: relative;
+}
+
+.homepageImage img {
+  width: 38rem;
+  object-fit: contain;
+}
+.homepageContent {
+  height: auto;
+  width: 635px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.textWrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.textWrapper h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+.homepageBtn {
+  width: 300px;
+  height: 65px;
+  overflow: hidden;
+}
+.homepageContent button {
+  width: 100%;
+  height: 100%;
+  background: #cdaaff;
+  color: #0c0d10;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  mix-blend-mode: difference;
+  transition: background 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+}
+.homepageContent button:hover {
+  background: #b179ff;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #fabbff, #b179ff 35%, #ac74fb 83%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.parentSpan {
+  font-family: Sohne;
+  font-weight: 100;
+  font-size: 18px;
+  position: absolute;
+  color: #fafafa;
+  mix-blend-mode: difference;
+  line-height: 22px;
+  overflow: hidden;
+}
+.childSpan {
+  position: relative;
+}
+
+.parentSpan:first-of-type {
+  top: 7%;
+  left: 0%;
+}
+.parentSpan:nth-of-type(2) {
+  top: 25%;
+  right: -5%;
+}
+.parentSpan:nth-of-type(3) {
+  top: 41%;
+  left: 0%;
+}
+.parentSpan:nth-of-type(4) {
+  bottom: 37%;
+  right: -5%;
+}
+.parentSpan:last-of-type {
+  bottom: 10%;
+  left: 0%;
+  width: 20rem;
+}
+
+@media (max-width: 1400px) {
+  .homepageContainer {
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    align-content: center;
+  }
+  .homepageContent {
+    margin-bottom: 0;
+  }
+  .homepageImage img {
+    width: 40vh;
+    margin: 0;
+  }
+  .parentSpan {
+    font-size: 14px;
+  }
+  .parentSpan:first-of-type {
+    top: 2vh;
+    left: 8vw;
+  }
+  .parentSpan:nth-of-type(2) {
+    top: 9vh;
+    right: 8vw;
+  }
+  .parentSpan:nth-of-type(3) {
+    top: 18vh;
+    left: 8vw;
+  }
+  .parentSpan:nth-of-type(4) {
+    bottom: 14vh;
+    right: 8vw;
+  }
+  .parentSpan:last-of-type {
+    bottom: 3vh;
+    left: 8vw;
+    width: 19rem;
+  }
+}
+
+@media (max-width: 500px) {
+  section#homepage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .homepageContainer {
+    gap: 2vh;
+    margin-top: 3rem;
+  }
+  .homepageContent {
+    width: 100%;
+    margin-bottom: 0;
+    gap: 1rem;
+    align-items: center;
+  }
+  .homepageImage span {
+    font-size: 1.4vh;
+  }
+  .homepageImage {
+    width: 45vh;
+  }
+  .parentSpan:first-of-type {
+    top: 2vh;
+    left: 0vw;
+  }
+
+  .parentSpan:nth-of-type(2) {
+    top: 7vh;
+    right: 0vw;
+  }
+  .parentSpan:nth-of-type(3) {
+    top: 12vh;
+    left: 0vw;
+  }
+  .parentSpan:nth-of-type(4) {
+    bottom: 10vh;
+    right: 0vw;
+  }
+  .parentSpan:last-of-type {
+    bottom: 2vh;
+    left: 0vw;
+    width: 25vh !important;
+    line-height: 2vh !important;
+  }
+
+  .homepageContent button {
+    font-size: 1rem;
+  }
+  .homepageBtn {
+    width: 100%;
+  }
+}
+
+/* for large height based devices */
+@media (max-width: 500px) and (min-height: 701px) {
+  .homepageImage {
+    width: 80vw;
+  }
+  .homepageImage img {
+    width: 70vw;
+    margin: 0;
+  }
+  .homepageImage span {
+    font-size: 12px;
+  }
+  .parentSpan:first-of-type {
+    top: 5%;
+    left: 0;
+  }
+  .parentSpan:nth-of-type(2) {
+    top: 25%;
+    right: 0vw;
+  }
+  .parentSpan:nth-of-type(3) {
+    top: 40%;
+    left: 0;
+  }
+  .parentSpan:nth-of-type(4) {
+    bottom: 35%;
+    right: 0;
+  }
+  .parentSpan:last-of-type {
+    bottom: 5%;
+    left: 0vw;
+    width: 14rem !important;
+    line-height: 1rem !important;
+  }
+}
+/* for small height based devices */
+@media (max-width: 500px) and (max-height: 700px) {
+  .homepageImage img {
+    width: 35vh;
+    margin: 0;
+  }
+}

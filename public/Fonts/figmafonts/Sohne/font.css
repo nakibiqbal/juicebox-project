@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Sohne";
+  src: url("./Sohne-Buch.otf") format("opentype"),
+    url("./Sohne-BuchKursiv.otf") format("opentype"),
+    url("./Sohne-Extraleicht.otf") format("opentype"),
+    url("./Sohne-ExtraleichtKursiv.otf") format("opentype"),
+    url("./Sohne-LeichtKursiv.otf") format("opentype"),
+    url("./Sohne-Dreiviertelfett.otf") format("opentype"),
+    url("./Sohne-Kraftig.otf") format("opentype"),
+    url("./Sohne-KraftigKursiv.otf") format("opentype"),
+    url("./Sohne-Extrafett.otf") format("opentype"),
+    url("./Sohne-ExtrafettKursiv.otf") format("opentype");
+  font-weight: 200 800;
+  font-style: normal italic;
+}
