@@ -1,9 +1,10 @@
 // InfoForm.jsx
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Lottie from 'lottie-react'
 import "./infoForm.css";
 import { IoIosArrowRoundUp } from "react-icons/io";
-import vector2 from "/Images/vector2.png";
+import JB2G_Lottie from "../../../public/LottieAnimation/JB2G_Lottie.json"
 
 export default function InfoForm({ onBackToSteps }) {
     const [currentStep, setCurrentStep] = useState(0);
@@ -59,7 +60,7 @@ export default function InfoForm({ onBackToSteps }) {
 
                 {/* Purple Circle Icon */}
                 <div className="purpleCircle">
-                    <img src={vector2} />
+                    <Lottie animationData={JB2G_Lottie} loop={true} />
                 </div>
 
                 {/* Step Content */}
